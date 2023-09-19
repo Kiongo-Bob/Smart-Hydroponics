@@ -55,17 +55,17 @@ led_BUILTIN = Pin("LED",Pin.OUT)
 try:
     while True:
         # Read the voltage from the potentiometer
-        temperature = temp_val.read_u16()/ 65535.0 * 100  # Convert to voltage (assuming a 3.3V reference)
+        temperature = temp_val.read_u16()/ 65535.0 * 100  # Convert to voltage (Scaling to 100*C simulation)
         print(f"Voltage: {temperature}*C")
         sleep(2)
         
         # Read the voltage from the potentiometer
-        concentration = nutrient_val.read_u16()/ 65535.0 * 100  # Convert to voltage (assuming a 3.3V reference)
+        concentration = nutrient_val.read_u16()/ 65535.0 * 100  # Convert to voltage (Scaling to 100% simulation)
         print(f"Tank concentration: {concentration}%")
         sleep(2)
         
         # Read the voltage from the potentiometer
-        pH = pH_val.read_u16()/ 65535.0 * 14  # Convert to voltage (assuming a 3.3V reference)
+        pH = pH_val.read_u16()/ 65535.0 * 14  # Convert to voltage (Scaling to 0-14 simulation)
         print(f"pH: {pH}")
         sleep(2)
         
